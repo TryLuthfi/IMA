@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/yoyo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/formmm"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/satu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="ADMIN"
+                android:textStyle="bold"
+                android:id="@+id/nama"
+                android:textColor="#cc431e"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:textColor="#cc431e"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deskripsi_artikel"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp" />
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-5dp"
+                android:layout_width="match_parent"
+                android:id="@+id/artikel_created_date"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:paddingHorizontal="20dp"
+        android:layout_below="@id/yoyo"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/formm">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:gravity="right"
+            android:id="@+id/judul_artikel"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

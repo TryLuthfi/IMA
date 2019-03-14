@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:id="@+id/atas"
+        android:layout_height="1dp"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/atas"
+        android:layout_above="@id/username1"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginTop="-10dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/logo"
+            android:layout_height="140dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:background="@drawable/form"
+        android:id="@+id/username1"
+        android:layout_marginHorizontal="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_above="@id/tengah"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:background="@drawable/userform"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:background="@null"
+            android:gravity="center"
+            android:maxLines="1"
+            android:id="@+id/usernameE"
+            android:textColorHint="#e4d8d8"
+            android:hint="USERNAME"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:id="@+id/tengah"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/password1"
+        android:background="@drawable/form"
+        android:layout_below="@id/username1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:background="@drawable/passwordform"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:background="@null"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColorHint="#e4d8d8"
+            android:inputType="textPassword"
+            android:hint="* * * *"
+            android:textColor="#fff"
+            android:id="@+id/passwordE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/signinbutton"
+        android:orientation="horizontal"
+        android:layout_below="@id/password1"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@drawable/buttonlogin"
+        android:layout_marginHorizontal="30dp"
+        android:layout_height="70dp" />
+
+    <LinearLayout
+        android:id="@+id/or"
+        android:layout_width="match_parent"
+        android:layout_below="@id/signinbutton"
+        android:gravity="center"
+        android:layout_marginTop="-10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:text="-OR-"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:background="@drawable/form"
+        android:layout_below="@id/or"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp">
+
+
+        <TextView
+            android:background="@null"
+            android:gravity="center"
+            android:textColorHint="#fff"
+            android:hint="REGISTER"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>
