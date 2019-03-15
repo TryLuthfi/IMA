@@ -35,8 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:paddingStart="10dp"
-                android:theme="@style/AppTheme">
-            </android.support.v7.widget.Toolbar>
+                android:theme="@style/AppTheme"></android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -56,18 +55,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/formmmm"
+                android:orientation="vertical"
                 android:paddingHorizontal="20dp"
-                android:paddingBottom="15dp"
-                android:orientation="vertical">
+                android:paddingBottom="15dp">
 
                 <TextView
                     android:id="@+id/info"
-                    android:layout_marginTop="15dp"
-                    android:textSize="18sp"
-                    android:textColor="#000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Informasi:"/>
+                    android:layout_marginTop="15dp"
+                    android:text="Informasi:"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -78,22 +77,22 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/time"/>
+                            android:src="@drawable/time" />
 
                         <TextView
                             android:id="@+id/jam_acara"
@@ -101,22 +100,22 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
-                            android:textSize="13sp"
-                            android:textColor="#000"/>
+                            android:textColor="#000"
+                            android:textSize="13sp" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/lokasi"/>
+                            android:src="@drawable/lokasi" />
 
                         <TextView
                             android:id="@+id/alamat_acara"
@@ -124,29 +123,29 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
-                            android:textSize="15sp"
-                            android:textColor="#000"/>
+                            android:textColor="#000"
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/kalenderr"/>
+                            android:src="@drawable/kalenderr" />
 
                         <TextView
                             android:id="@+id/tanggal_acara"
@@ -154,15 +153,15 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
-                            android:textSize="16sp"
-                            android:textColor="#000"/>
+                            android:textColor="#000"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <TextView
@@ -172,7 +171,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10dp"
                             android:textSize="15sp"
-                            android:textStyle="italic"/>
+                            android:textStyle="italic" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -183,19 +182,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
-                android:paddingBottom="20dp"
                 android:background="@drawable/box2"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:id="@+id/deskripsi"
-                    android:layout_marginTop="15dp"
-                    android:textSize="18sp"
-                    android:textColor="#000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Deskripsi Acara:"/>
+                    android:layout_marginTop="15dp"
+                    android:text="Deskripsi Acara:"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -208,7 +207,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textColor="#6b6b6b"/>
+                    android:textColor="#6b6b6b" />
 
             </LinearLayout>
 
@@ -216,33 +215,54 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
-                android:paddingBottom="20dp"
-                android:paddingTop="20dp"
                 android:background="@drawable/formmmmm"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:id="@+id/galeri"
-                    android:layout_marginTop="15dp"
-                    android:textSize="18sp"
-                    android:textColor="#000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Galeri:"/>
+                    android:layout_marginTop="15dp"
+                    android:text="Galeri:"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#b7b7b7"></LinearLayout>
 
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:id="@+id/recycler_view"
-                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                </android.support.v7.widget.RecyclerView>
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
+
+                    <LinearLayout
+                        android:layout_width="75dp"
+                        android:id="@+id/tambah"
+                        android:background="#fafafa"
+                        android:gravity="center"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/plus" />
+                    </LinearLayout>
+                </LinearLayout>
+
 
             </LinearLayout>
         </LinearLayout>

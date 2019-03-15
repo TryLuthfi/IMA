@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,15 +35,17 @@ import java.util.Objects;
 public class DetailEvent extends AppCompatActivity {
     private TextView info, deskripsi, deskripsi_acara, galeri, jam_acara, tanggal_acara, alamat_acara
             , alamat_lengkap_acara, judul_acara;
+    private LinearLayout tambah;
     private String mPostKeyIDACARA = null;
-    private static final String URL_PRODUCTS = "http://imaindonesia.000webhostapp.com/acarapreview.php";
+    private static final String URL_PRODUCTS = "http://imaindonesia.000webhostapp.com/galerypreview.php";
     private String JSON_STRING;
     private String id_acara, jamAcara, tanggalAcara, alamatAcara, Alamatlengkap_acara, deskripsiAcara
             , judulAcara, gambarAcara;
     private CollapsingToolbarLayout collapsingToolbar;
     private ImageView iv_header;
-    List<Acara> productList;
+    List<Galery> productList;
     RecyclerView recyclerView;
+    private static final int NUM_COLUMNS = 1;
     private ProgressBar loading;
 
     @Override
@@ -50,6 +54,7 @@ public class DetailEvent extends AppCompatActivity {
         setContentView(R.layout.activity_detail_event);
 
         info = (TextView) findViewById(R.id.info);
+        tambah = findViewById(R.id.tambah);
         deskripsi = (TextView) findViewById(R.id.deskripsi);
         galeri = (TextView) findViewById(R.id.galeri);
         jam_acara = (TextView) findViewById(R.id.jam_acara);
@@ -67,16 +72,23 @@ public class DetailEvent extends AppCompatActivity {
         deskripsi.setTypeface(customfont);
         galeri.setTypeface(customfont);
 
-//        recyclerView = findViewById(R.id.recycler_view);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(DetailEvent.this));
-//
-//        loading = findViewById(R.id.loading);
-//        loading.setVisibility(View.VISIBLE);
-//
-//        productList = new ArrayList<>();
-//
-//        loadProducts();
+        productList = new ArrayList<>();
+
+        recyclerView = findViewById(R.id.recycler_view);
+        GaleryAdapter staggeredRecyclerViewAdapter =
+                new GaleryAdapter(DetailEvent.this, productList);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
+        recyclerView.setAdapter(staggeredRecyclerViewAdapter);
+
+        tambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DetailEvent.this, mPostKeyIDACARA, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        loadProducts();
 
         getJSON();
     }
@@ -165,29 +177,26 @@ public class DetailEvent extends AppCompatActivity {
                                 JSONObject product = array.getJSONObject(i);
 
                                 //adding the product to product list
-                                productList.add(new Acara(
-                                        product.getString("id_acara"),
-                                        product.getString("judul_acara"),
-                                        product.getString("gambar_acara"),
-                                        product.getString("jam_acara"),
-                                        product.getString("tanggal_acara"),
-                                        product.getString("alamat_acara"),
-                                        product.getString("alamat_lengkap_acara"),
-                                        product.getString("deskripsi_acara")
-                                ));
+                                if (mPostKeyIDACARA.equals(product.getString("id_acara"))) {
+                                    productList.add(new Galery(
+                                            product.getString("id_galery"),
+                                            product.getString("id_acara"),
+                                            product.getString("id_user"),
+                                            product.getString("gambar_galery"),
+                                            product.getString("judul_acara")
+                                    ));
+                                }
                             }
 
-                            AcaraAdapter adapter = new AcaraAdapter(DetailEvent.this, productList);
+                            GaleryAdapter adapter = new GaleryAdapter(DetailEvent.this, productList);
 
                             if (adapter != null){
                                 recyclerView.setAdapter(adapter);
 
-                                loading.setVisibility(View.INVISIBLE);
                             }else {
                                 Toast.makeText(DetailEvent.this, "null", Toast.LENGTH_SHORT).show();
                             }
 
-//                            loading.dismiss();
                         } catch (JSONException e) {
                             e.printStackTrace();
 
