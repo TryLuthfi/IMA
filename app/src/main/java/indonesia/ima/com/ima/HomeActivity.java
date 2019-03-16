@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ArrayList<ImageModel> list = new ArrayList<>();
 
-        for(int i = 0; i < myImageList.length; i++){
+        for(int i = 2; i < myImageList.length; i++){
             ImageModel imageModel = new ImageModel();
             imageModel.setImage_drawable(myImageList[i]);
             list.add(imageModel);
@@ -138,6 +138,11 @@ public class HomeActivity extends AppCompatActivity {
 
     public void search(View view){
         Intent intent = new Intent (HomeActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void chat(View view){
+        Intent intent = new Intent (HomeActivity.this, ChatActivity.class);
         startActivity(intent);
     }
 }
