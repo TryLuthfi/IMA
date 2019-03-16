@@ -3,6 +3,7 @@ package indonesia.ima.com.ima;
 import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ public class DetailArtikel extends AppCompatActivity {
     private String mPostKeyIdArtikel = null;
     private String JSON_STRING;
     TextView nama, deskripsi_artikel, artikel_created_date, judul_artikel;
+    private CollapsingToolbarLayout collapsingToolbar;
     private String id_user, id_artikel,namaArtikel, judulArtikel, artikelDate, deskripsiArtikel;
 
     @Override
@@ -30,11 +32,9 @@ public class DetailArtikel extends AppCompatActivity {
 
         mPostKeyIdArtikel = getIntent().getExtras().getString("id_artikel");
 
-        nama = findViewById(R.id.nama);
         deskripsi_artikel = findViewById(R.id.deskripsi_artikel);
         artikel_created_date = findViewById(R.id.artikel_created_date);
-        judul_artikel = findViewById(R.id.judul);
-
+        collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
         getJSON();
     }
@@ -61,12 +61,9 @@ public class DetailArtikel extends AppCompatActivity {
                 list.add(data);
 
                 if (mPostKeyIdArtikel.equals(jo.getString("id_artikel"))) {
-                    Typeface customfont = Typeface.createFromAsset(DetailArtikel.this.getAssets(), "font/Exo-DemiBold.otf");
-                    judul_artikel.setTypeface(customfont);
-                    nama.setText(namaArtikel);
                     deskripsi_artikel.setText(deskripsiArtikel);
                     artikel_created_date.setText(artikelDate);
-                    judul_artikel.setText(judulArtikel);
+                    collapsingToolbar.setTitle(judulArtikel);
                 }
             }
 

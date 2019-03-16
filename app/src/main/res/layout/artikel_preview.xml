@@ -1,74 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/yoyo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <android.support.v7.widget.CardView
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="10dp"
         android:layout_marginHorizontal="10dp"
-        android:background="@drawable/formmm"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/satu"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/aaaa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:maxHeight="200dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/gambar"
+                    android:layout_width="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_below="@id/aaaa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="ADMIN"
-                android:textStyle="bold"
-                android:id="@+id/nama"
-                android:textColor="#cc431e"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="5dp" />
+                android:layout_weight="1"
+                android:background="#fff"
+                android:orientation="vertical">
 
-            <TextView
-                android:textColor="#cc431e"
-                android:maxLines="3"
-                android:ellipsize="end"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/deskripsi_artikel"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginVertical="5dp" />
+                <TextView
+                    android:id="@+id/judul_artikel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="-5dp"
-                android:layout_width="match_parent"
-                android:id="@+id/artikel_created_date"
-                android:gravity="right"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="5dp" />
-        </LinearLayout>
-    </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#998181"
+                    android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:paddingHorizontal="20dp"
-        android:layout_below="@id/yoyo"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="-10dp"
-        android:background="@drawable/formm">
+                </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:gravity="right"
-            android:id="@+id/judul_artikel"
-            android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="#6aa69898"
+                        android:layout_width="match_parent"
+                        android:id="@+id/artikel_created_date"
+                        android:gravity="right"
+                        android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:id="@+id/deskripsi_artikel"
+                        android:text=""
+                        android:layout_height="wrap_content" />
 
-</RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/nama"
+                        android:visibility="invisible"
+                        android:layout_gravity="left"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

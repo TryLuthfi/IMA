@@ -20,7 +20,9 @@ public class konfigurasi {
     public static final String artikel_created_date = "artikel_created_date";
     public static final String nama = "nama";
 
+
     public static final String URL_GET_DATAACARA = "http://imaindonesia.000webhostapp.com/dataacara.php";
     public static final String URL_GET_DATAARTIKEL = "http://imaindonesia.000webhostapp.com/dataartikel.php";
 
+    public static final String URL_GET_UPLOAD_ARTIKEL = "http://imaindonesia.000webhostapp.com/uploadartikel.php";
 }

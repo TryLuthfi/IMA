@@ -1,14 +1,26 @@
 package indonesia.ima.com.ima;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,6 +39,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,18 +50,16 @@ import java.util.Objects;
 public class DetailEvent extends AppCompatActivity {
     private TextView info, deskripsi, deskripsi_acara, galeri, jam_acara, tanggal_acara, alamat_acara
             , alamat_lengkap_acara, judul_acara;
-    private LinearLayout tambah;
     private String mPostKeyIDACARA = null;
     private static final String URL_PRODUCTS = "http://imaindonesia.000webhostapp.com/galerypreview.php";
     private String JSON_STRING;
     private String id_acara, jamAcara, tanggalAcara, alamatAcara, Alamatlengkap_acara, deskripsiAcara
             , judulAcara, gambarAcara;
     private CollapsingToolbarLayout collapsingToolbar;
-    private ImageView iv_header;
+    private ImageView iv_header, btnGalery, btnUpload, gambar;
     List<Galery> productList;
     RecyclerView recyclerView;
     private static final int NUM_COLUMNS = 1;
-    private ProgressBar loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +67,6 @@ public class DetailEvent extends AppCompatActivity {
         setContentView(R.layout.activity_detail_event);
 
         info = (TextView) findViewById(R.id.info);
-        tambah = findViewById(R.id.tambah);
         deskripsi = (TextView) findViewById(R.id.deskripsi);
         galeri = (TextView) findViewById(R.id.galeri);
         jam_acara = (TextView) findViewById(R.id.jam_acara);
@@ -74,6 +86,7 @@ public class DetailEvent extends AppCompatActivity {
 
         productList = new ArrayList<>();
 
+
         recyclerView = findViewById(R.id.recycler_view);
         GaleryAdapter staggeredRecyclerViewAdapter =
                 new GaleryAdapter(DetailEvent.this, productList);
@@ -81,17 +94,11 @@ public class DetailEvent extends AppCompatActivity {
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setAdapter(staggeredRecyclerViewAdapter);
 
-        tambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(DetailEvent.this, mPostKeyIDACARA, Toast.LENGTH_SHORT).show();
-            }
-        });
-
         loadProducts();
 
         getJSON();
     }
+
     @SuppressLint("SetTextI18n")
     private void showData() {
         JSONObject jsonObject = null;
@@ -212,5 +219,11 @@ public class DetailEvent extends AppCompatActivity {
 
         //adding our stringrequest to queue
         Volley.newRequestQueue(DetailEvent.this).add(stringRequest);
+    }
+
+    private String getIdUser(){
+        SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        String id_user = preferences.getString("id_user", "null");
+        return id_user;
     }
 }

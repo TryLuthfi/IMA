@@ -1,73 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailArtikel"
-    android:background="@drawable/backgroundddddd">
+    tools:context=".DetailArtikel">
 
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginBottom="32dp"
+            app:expandedTitleMarginStart="20dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/iv_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingStart="10dp"
+                android:theme="@style/AppTheme">
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/backgroundd"
-        android:layout_margin="30dp">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:textSize="16sp"/>
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginVertical="27dp">
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/formmmm"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="20dp">
 
                 <TextView
-                    android:id="@+id/judul"
-                    android:textSize="30sp"
-                    android:layout_marginTop="35dp"
-                    android:textColor="#000"
+                    android:id="@+id/deskripsi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAllCaps="true"/>
+                    android:layout_marginTop="15dp"
+                    android:text="Deskripsi Artikel:"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#b7b7b7"></LinearLayout>
+
 
                 <TextView
                     android:id="@+id/artikel_created_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#847979"
-                    android:layout_marginTop="15dp"
-                    android:layout_below="@id/judul"/>
-
-                <LinearLayout
-                    android:id="@+id/garis"
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:layout_below="@+id/artikel_created_date"
-                    android:layout_marginTop="8dp"
-                    android:background="#000"></LinearLayout>
+                    android:gravity="right"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#6b6b6b" />
+
 
                 <TextView
                     android:id="@+id/deskripsi_artikel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/garis"/>
+                    android:layout_marginTop="10dp"
+                    android:textColor="#6b6b6b" />
 
-            </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
-        </ScrollView>
-
-    </RelativeLayout>
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
