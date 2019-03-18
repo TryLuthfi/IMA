@@ -60,4 +60,9 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:1.2.6'
 
     implementation 'com.stone.vega.library:VegaLayoutManager:1.0.6'
+
+    //socket io
+    implementation ('com.github.nkzawa:socket.io-client:0.3.0'){
+        exclude group: 'org.json', module: 'json'
+    }
 }

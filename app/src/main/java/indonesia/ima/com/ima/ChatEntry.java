@@ -10,13 +10,15 @@ import java.util.List;
 public class ChatEntry {
     private static final String TAG = "ChatEntry";
 
-    public final String pesan;
+    public final String id;
     public final String penulis;
+    public final String pesan;
     public final String waktu;
 
-    public ChatEntry(String pesan, String penulis, String waktu){
-        this.pesan = pesan;
+    public ChatEntry(String id, String penulis,String pesan, String waktu){
+        this.id = id;
         this.penulis = penulis;
+        this.pesan = pesan;
         this.waktu = waktu;
     }
 

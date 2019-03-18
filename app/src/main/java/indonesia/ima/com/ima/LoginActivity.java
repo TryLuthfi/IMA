@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("username", username_user);
         editor.apply();
     }
-    private String getIdUser(){
+    public String getIdUser(){
         SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         String id_user = preferences.getString("id_user", "null");
         return id_user;

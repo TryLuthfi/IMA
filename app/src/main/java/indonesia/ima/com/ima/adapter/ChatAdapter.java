@@ -49,7 +49,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ChatAdapter.ViewHolder holder, int position) {
         if (cahtList != null && position < cahtList.size()) {
             final ChatEntry pesan = cahtList.get(position);
-            if (pesan.penulis.equals(idUser)){
+            if (pesan.id.equals(idUser)){
                 holder.cPesanOther.setVisibility(View.GONE);
                 holder.cPesanUser.setVisibility(View.VISIBLE);
                 holder.pesanUser.setText(pesan.pesan);
@@ -57,6 +57,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>{
             }else{
                 holder.cPesanOther.setVisibility(View.VISIBLE);
                 holder.cPesanUser.setVisibility(View.GONE);
+                holder.usernameOther.setText(pesan.penulis);
                 holder.pesanOther.setText(pesan.pesan);
                 holder.waktuOther.setText(getTanggal(pesan.waktu));
             }

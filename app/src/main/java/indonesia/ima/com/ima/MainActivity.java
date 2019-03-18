@@ -175,4 +175,8 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.Conta
         intent.putExtra("id_user", contact.getId_user());
         startActivity(intent);
     }
+
+    public void back(View v){
+        finish();
+    }
 }
