@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String TAG = "LoginActivity";
     public static final String LOGIN_URL = "http://imaindonesia.000webhostapp.com/login.php";
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";
@@ -67,13 +68,14 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        Log.e("idpelangan",response.toString());
+                        Log.d(TAG, response);
                         //If we are getting success from server
                         if (response.contains(LOGIN_SUCCESS)) {
                             hideDialog();
-                            String id_user = response.toString().split(";")[1];
-                            Log.e("iniidpelanggan", id_user);
-                            setPreference(id_user);
+                            String[] split_ = response.split(";");
+                            String id_user = split_[1];
+                            String username_user = split_[2];
+                            setPreference(id_user, username_user);
                             gotoCourseActivity();
 
                         } else {
@@ -98,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                 //Adding parameters to request
                 params.put(KEY_USERNAME, username);
                 params.put(KEY_PASSWORD, password);
-
+                Log.d(TAG, "getParams: " + params);
                 //returning parameter
                 return params;
             }
@@ -123,10 +125,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    void setPreference(String id_user){
+    void setPreference(String id_user, String username_user){
         SharedPreferences mSettings = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putString("id_user", id_user);
+        editor.putString("username", username_user);
         editor.apply();
     }
     private String getIdUser(){
