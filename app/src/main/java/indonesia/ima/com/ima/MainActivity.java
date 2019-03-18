@@ -2,6 +2,7 @@ package indonesia.ima.com.ima;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -169,6 +170,9 @@ public class MainActivity extends AppCompatActivity implements UserAdapter.Conta
 
     @Override
     public void onContactSelected(User contact) {
-        Toast.makeText(getApplicationContext(), "Selected: " + contact.getId_user(), Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "Selected: " + contact.getId_user(), Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+        intent.putExtra("id_user", contact.getId_user());
+        startActivity(intent);
     }
 }

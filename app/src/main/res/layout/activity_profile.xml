@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <LinearLayout
+        android:background="#c75435"
+        android:id="@+id/satu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/cross" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="username"
+                android:id="@+id/username"
+                android:layout_marginLeft="-10dp"
+                android:gravity="center"
+                android:textColor="#312d2b"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dua"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/satu"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/foto_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tiga"
+        android:layout_below="@id/dua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_fragment1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="show_fragment_1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_fragment2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="show_fragment_2"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_below="@id/tiga"
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
