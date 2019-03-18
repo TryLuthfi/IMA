@@ -131,6 +131,12 @@ public class DetailEvent extends AppCompatActivity {
                     alamat_lengkap_acara.setText(""+Alamatlengkap_acara);
                     collapsingToolbar.setTitle(judulAcara);
                     Glide.with(DetailEvent.this).load("http://imaindonesia.000webhostapp.com/acara/" + gambarAcara).into(iv_header);
+                    iv_header.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(DetailEvent.this, "clicked", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
 
@@ -219,11 +225,5 @@ public class DetailEvent extends AppCompatActivity {
 
         //adding our stringrequest to queue
         Volley.newRequestQueue(DetailEvent.this).add(stringRequest);
-    }
-
-    private String getIdUser(){
-        SharedPreferences preferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        String id_user = preferences.getString("id_user", "null");
-        return id_user;
     }
 }

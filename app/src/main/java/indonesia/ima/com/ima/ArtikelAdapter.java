@@ -38,7 +38,6 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ProductV
     @Override
     public void onBindViewHolder(final ProductViewHolder holder, int position) {
         final Artikel product = productList.get(position);
-        holder.nama.setText(product.getNama());
         holder.deskripsi_artikel.setText(""+product.getDeskripsi_artikel());
         holder.artikel_created_date.setText(product.getArtikel_created_date());
         holder.judul_artikel.setText(product.getJudul_artikel());
@@ -62,7 +61,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ProductV
 
 
         LinearLayout user;
-        TextView nama, deskripsi_artikel, artikel_created_date, judul_artikel;
+        TextView  deskripsi_artikel, artikel_created_date, judul_artikel;
         CardView da;
         View view;
 
@@ -70,7 +69,6 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ProductV
         public ProductViewHolder(View itemView) {
             super(itemView);
             view = itemView;
-            nama = view.findViewById(R.id.nama);
             deskripsi_artikel = view.findViewById(R.id.deskripsi_artikel);
             artikel_created_date = view.findViewById(R.id.artikel_created_date);
             judul_artikel = view.findViewById(R.id.judul_artikel);

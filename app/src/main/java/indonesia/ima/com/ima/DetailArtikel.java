@@ -50,7 +50,6 @@ public class DetailArtikel extends AppCompatActivity {
             for (int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
                 id_artikel = jo.getString(konfigurasi.id_artikel);
-                namaArtikel = jo.getString(konfigurasi.nama);
                 judulArtikel = jo.getString(konfigurasi.judul_artikel);
                 artikelDate = jo.getString(konfigurasi.artikel_created_date);
                 deskripsiArtikel = jo.getString(konfigurasi.deskripsi_artikel);
