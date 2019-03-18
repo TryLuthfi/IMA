@@ -2,12 +2,15 @@ package indonesia.ima.com.ima;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -56,6 +59,9 @@ public class ProfileActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.frame_container, new FirstFragment());
         fragmentTransaction.add(R.id.frame_container, new SecondFragment());
         fragmentTransaction.commit();
+
+
+        final Button button  = (Button) findViewById(R.id.btn_fragment1);
 
         username = findViewById(R.id.username);
         foto_profile = findViewById(R.id.foto_profile);
@@ -122,6 +128,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     @OnClick(R.id. btn_fragment1 )
     public void onBtnFragment1Clicked() {
+//        Intent intent = new Intent(ProfileActivity.this, FirstFragment.class);
+//        intent.putExtra("id_user" ,mPostKeyIdUser);
+//        startActivity(intent);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id. frame_container , new FirstFragment());

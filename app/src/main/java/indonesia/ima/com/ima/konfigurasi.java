@@ -32,6 +32,8 @@ public class konfigurasi {
     public static final String email_usaha = "email_usaha";
     public static final String logo_usaha = "logo_usaha";
     public static final String chapter = "chapter";
+    public static final String longitude = "longitude";
+    public static final String latitude = "latitude";
     public static final String register_date = "register_date";
 
     public static final String URL_GET_DATAACARA = "http://imaindonesia.000webhostapp.com/dataacara.php";
