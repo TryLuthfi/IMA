@@ -49,16 +49,17 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ChatAdapter.ViewHolder holder, int position) {
         if (cahtList != null && position < cahtList.size()) {
             final ChatEntry pesan = cahtList.get(position);
-            if (pesan.penulis.equals(idUser)){
-                holder.cPesanAdmin.setVisibility(View.INVISIBLE);
+            if (pesan.id.equals(idUser)){
+                holder.cPesanOther.setVisibility(View.GONE);
                 holder.cPesanUser.setVisibility(View.VISIBLE);
                 holder.pesanUser.setText(pesan.pesan);
                 holder.waktuUser.setText(getTanggal(pesan.waktu));
             }else{
-                holder.cPesanAdmin.setVisibility(View.VISIBLE);
-                holder.cPesanUser.setVisibility(View.INVISIBLE);
-                holder.pesanAdmin.setText(pesan.pesan);
-                holder.waktuAdmin.setText(getTanggal(pesan.waktu));
+                holder.cPesanOther.setVisibility(View.VISIBLE);
+                holder.cPesanUser.setVisibility(View.GONE);
+                holder.usernameOther.setText(pesan.penulis);
+                holder.pesanOther.setText(pesan.pesan);
+                holder.waktuOther.setText(getTanggal(pesan.waktu));
             }
 
         }
@@ -85,17 +86,19 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        RelativeLayout cPesanAdmin;
-        TextView pesanAdmin;
-        TextView waktuAdmin;
+        RelativeLayout cPesanOther;
+        TextView usernameOther;
+        TextView pesanOther;
+        TextView waktuOther;
         RelativeLayout cPesanUser;
         TextView pesanUser;
         TextView waktuUser;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cPesanAdmin = itemView.findViewById(R.id.c_pesan_admin_chat);
-            pesanAdmin = itemView.findViewById(R.id.pesan_admin_chat);
-            waktuAdmin = itemView.findViewById(R.id.waktu_admin_chat);
+            cPesanOther = itemView.findViewById(R.id.c_pesan_other_chat);
+            usernameOther = itemView.findViewById(R.id.username_other_chat);
+            pesanOther = itemView.findViewById(R.id.pesan_other_chat);
+            waktuOther = itemView.findViewById(R.id.waktu_other_chat);
             cPesanUser = itemView.findViewById(R.id.c_pesan_user_chat);
             pesanUser = itemView.findViewById(R.id.pesan_user_chat);
             waktuUser = itemView.findViewById(R.id.waktu_user_chat);

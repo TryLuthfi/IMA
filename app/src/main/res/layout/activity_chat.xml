@@ -23,15 +23,17 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/back_chat"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:gravity="center">
+                android:gravity="center"
+                android:onClick="back">
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/cross" />
+                    android:background="@drawable/back_icon" />
             </LinearLayout>
 
             <LinearLayout
@@ -42,7 +44,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
                     android:gravity="center_vertical"
                     android:text="CHAT"
                     android:textColor="#b14e14"
@@ -115,7 +116,8 @@
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="kirim">
 
             <ImageView
                 android:layout_width="wrap_content"

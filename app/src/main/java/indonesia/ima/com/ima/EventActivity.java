@@ -120,4 +120,8 @@ public class EventActivity extends AppCompatActivity {
         Volley.newRequestQueue(EventActivity.this).add(stringRequest);
     }
 
+    public void back(View v){
+        finish();
+    }
+
 }

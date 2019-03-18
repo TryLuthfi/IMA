@@ -105,4 +105,8 @@ public class ArtikelActivity extends AppCompatActivity {
         //adding our stringrequest to queue
         Volley.newRequestQueue(ArtikelActivity.this).add(stringRequest);
     }
+
+    public void back(View view) {
+        finish();
+    }
 }
