@@ -2,7 +2,10 @@ package indonesia.ima.com.ima;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.DownloadManager;
+import android.content.Context;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -27,10 +30,11 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 public class DetailArtikel extends AppCompatActivity {
     private String mPostKeyIdArtikel = null;
     private String JSON_STRING;
-    TextView nama, deskripsi_artikel, artikel_created_date, judul_artikel;
+    TextView nama, deskripsi_artikel, artikel_created_date, judul_artikel, pdf, jpg;
     private CollapsingToolbarLayout collapsingToolbar;
     private ImageView iv_header;
     private String id_user, id_artikel,namaArtikel, judulArtikel,gambarArtikel, artikelDate, deskripsiArtikel;
+    DownloadManager downloadManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,15 @@ public class DetailArtikel extends AppCompatActivity {
         deskripsi_artikel = findViewById(R.id.deskripsi_artikel);
         artikel_created_date = findViewById(R.id.artikel_created_date);
         iv_header = findViewById(R.id.iv_header);
+        pdf = findViewById(R.id.pdf);
+        jpg = findViewById(R.id.jpg);
+
+        pdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DetailArtikel.this, "Pdf Tidak Tersedia", Toast.LENGTH_SHORT).show();
+            }
+        });
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
         getJSON();
@@ -95,6 +108,18 @@ public class DetailArtikel extends AppCompatActivity {
                 PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(gambar);
                 photoViewAttacher.update();
                 dialog.show();
+            }
+        });
+
+        jpg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                Uri uri = Uri.parse("http://imaindonesia.000webhostapp.com/acara/" + gambarArtikel);
+                //https://2.bp.blogspot.com/-WXUWh3AXAoY/WEpjoZLy_QI/AAAAAAAACno/p_lSB5RJNdY91bZP3mjNPQHd4hVpVINZACLcB/s640/Cetak%2BKumpulan%2BArtikel%2BKoran.png
+                DownloadManager.Request request = new DownloadManager.Request(uri);
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                Long reference = downloadManager.enqueue(request);
             }
         });
     }

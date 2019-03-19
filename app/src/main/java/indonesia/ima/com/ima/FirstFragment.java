@@ -40,9 +40,10 @@ import java.util.HashMap;
 public class FirstFragment extends Fragment {
 
     private String JSON_STRING;
-    private Double longitudeS, latitudeS;
+    private double longitudeS, latitudeS;
     private String id_userS;
     public ProfileActivity profile;
+    private String id;
 
 
     public FirstFragment() {
@@ -55,10 +56,8 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
 
-//        profile = (ProfileActivity) getActivity();
-//        String id = profile.mPostKeyIdUser;
-//        Toast.makeText(getActivity(), ""+id, Toast.LENGTH_SHORT).show();
-
+        profile = (ProfileActivity) getActivity();
+        id = profile.mPostKeyIdUser;
         getJSON();
         return view;
     }
@@ -81,14 +80,16 @@ public class FirstFragment extends Fragment {
 
             for (int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
+                id_userS = jo.getString(konfigurasi.id_user);
                 longitudeS = jo.getDouble(konfigurasi.longitude);
                 latitudeS = jo.getDouble(konfigurasi.latitude);
 
                 HashMap<String, String> data = new HashMap<>();
                 data.put(konfigurasi.id_user, id_userS);
 
-                getMaps(latitudeS, longitudeS);
-
+                if(id.equals(jo.getString("id_user"))){
+                    getMaps(latitudeS, longitudeS);
+                }
                 list.add(data);
 
             }
@@ -124,28 +125,20 @@ public class FirstFragment extends Fragment {
         gj.execute();
     }
 
-    private void getMaps(final Double latitudeS, final  Double longitudeS) {
+    private void getMaps(final double latitudeS, final  double longitudeS) {
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.frg);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-                mMap.clear(); //clear old markers
+                mMap.clear();
 
-                CameraPosition googlePlex = CameraPosition.builder()
-                        .target(new LatLng(112.667306,-7.976737))
-                        .zoom(10)
-                        .bearing(0)
-                        .tilt(45)
-                        .build();
+                LatLng sydney = new LatLng(latitudeS, longitudeS);
+                mMap.addMarker(new MarkerOptions().position(sydney)
+                        .title("Marker in Sydney"));
 
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 5000, null);
 
-                mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(latitudeS,longitudeS))
-                        .title("Iron Man")
-                        .snippet("His Talent : Plenty of money"));
             }
         });
 

@@ -70,7 +70,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>
         holder.phone.setText(contact.getNo_telp());
 
         Glide.with(context)
-                .load("http://imaindonesia.000webhostapp.com/userimage/"+contact.getFoto_profile())
+                .load("http://imaindonesia.000webhostapp.com/userimage/" + contact.getFoto_profile())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.thumbnail);
     }

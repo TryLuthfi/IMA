@@ -82,9 +82,9 @@
                 <TextView
                     android:id="@+id/artikel_created_date"
                     android:layout_width="match_parent"
-                    android:gravity="right"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:gravity="right"
                     android:textColor="#6b6b6b" />
 
 
@@ -94,6 +94,49 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textColor="#6b6b6b" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/formmmm"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="File Download:"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#b7b7b7"></LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. Panduan.pdf"
+                    android:id="@+id/pdf"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#2196F3" />
+
+
+                <TextView
+                    android:id="@+id/jpg"
+                    android:layout_width="match_parent"
+                    android:text="2. Cara Melakukan.jpeg"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#2196F3" />
+
 
             </LinearLayout>
         </LinearLayout>
