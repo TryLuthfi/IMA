@@ -22,6 +22,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -46,6 +47,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class DetailEvent extends AppCompatActivity {
     private TextView info, deskripsi, deskripsi_acara, galeri, jam_acara, tanggal_acara, alamat_acara
@@ -131,18 +134,31 @@ public class DetailEvent extends AppCompatActivity {
                     alamat_lengkap_acara.setText(""+Alamatlengkap_acara);
                     collapsingToolbar.setTitle(judulAcara);
                     Glide.with(DetailEvent.this).load("http://imaindonesia.000webhostapp.com/acara/" + gambarAcara).into(iv_header);
-                    iv_header.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(DetailEvent.this, "clicked", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    gambarPreview(gambarAcara);
                 }
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private void gambarPreview(final String gambarAcara) {
+        iv_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                            final Dialog dialog = new Dialog(DetailEvent.this);
+                            dialog.setCancelable(true);
+                            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                            dialog.setCanceledOnTouchOutside(true);
+                            dialog.setContentView(R.layout.custom_dialog);
+                            ImageView gambar = dialog.findViewById(R.id.gambar);
+                            Glide.with((DetailEvent.this)).load("http://imaindonesia.000webhostapp.com/acara/" + gambarAcara).into(gambar);
+                            PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(gambar);
+                            photoViewAttacher.update();
+                            dialog.show();
+            }
+        });
     }
 
     private void getJSON() {

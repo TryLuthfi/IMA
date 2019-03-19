@@ -17,6 +17,7 @@ public class konfigurasi {
     public static final String id_user = "id_user";
     public static final String id_artikel = "id_artikel";
     public static final String judul_artikel = "judul_artikel";
+    public static final String gambar_artikel = "gambar_artikel";
     public static final String deskripsi_artikel = "deskripsi_artikel";
     public static final String artikel_created_date = "artikel_created_date";
 

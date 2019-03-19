@@ -68,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:text="Deskripsi Artikel:"
+                    android:text="Informasi:"
                     android:textColor="#000"
                     android:textSize="18sp" />
 

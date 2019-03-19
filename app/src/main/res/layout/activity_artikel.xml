@@ -42,7 +42,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:gravity="center_vertical"
-                    android:text="ARTIKEL"
+                    android:text="INFORMASI"
                     android:textColor="#b14e14"
                     android:textSize="20sp" />
             </LinearLayout>

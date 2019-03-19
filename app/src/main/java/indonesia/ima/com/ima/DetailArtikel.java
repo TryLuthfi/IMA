@@ -1,11 +1,15 @@
 package indonesia.ima.com.ima;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,12 +22,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 public class DetailArtikel extends AppCompatActivity {
     private String mPostKeyIdArtikel = null;
     private String JSON_STRING;
     TextView nama, deskripsi_artikel, artikel_created_date, judul_artikel;
     private CollapsingToolbarLayout collapsingToolbar;
-    private String id_user, id_artikel,namaArtikel, judulArtikel, artikelDate, deskripsiArtikel;
+    private ImageView iv_header;
+    private String id_user, id_artikel,namaArtikel, judulArtikel,gambarArtikel, artikelDate, deskripsiArtikel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,7 @@ public class DetailArtikel extends AppCompatActivity {
 
         deskripsi_artikel = findViewById(R.id.deskripsi_artikel);
         artikel_created_date = findViewById(R.id.artikel_created_date);
+        iv_header = findViewById(R.id.iv_header);
         collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
         getJSON();
@@ -53,6 +61,7 @@ public class DetailArtikel extends AppCompatActivity {
                 judulArtikel = jo.getString(konfigurasi.judul_artikel);
                 artikelDate = jo.getString(konfigurasi.artikel_created_date);
                 deskripsiArtikel = jo.getString(konfigurasi.deskripsi_artikel);
+                gambarArtikel = jo.getString(konfigurasi.gambar_artikel);
 
                 HashMap<String, String> data = new HashMap<>();
                 data.put(konfigurasi.id_artikel, id_artikel);
@@ -63,12 +72,31 @@ public class DetailArtikel extends AppCompatActivity {
                     deskripsi_artikel.setText(deskripsiArtikel);
                     artikel_created_date.setText(artikelDate);
                     collapsingToolbar.setTitle(judulArtikel);
+                    Glide.with(DetailArtikel.this).load("http://imaindonesia.000webhostapp.com/acara/" + gambarArtikel).into(iv_header);
+                    gambarPreview(gambarArtikel);
                 }
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+    private void gambarPreview(final String gambarArtikel) {
+        iv_header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(DetailArtikel.this);
+                dialog.setCancelable(true);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setContentView(R.layout.custom_dialog);
+                ImageView gambar = dialog.findViewById(R.id.gambar);
+                Glide.with((DetailArtikel.this)).load("http://imaindonesia.000webhostapp.com/acara/" + gambarArtikel).into(gambar);
+                PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(gambar);
+                photoViewAttacher.update();
+                dialog.show();
+            }
+        });
     }
 
     private void getJSON() {
