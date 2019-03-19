@@ -42,6 +42,7 @@ public class FirstFragment extends Fragment {
     private String JSON_STRING;
     private Double longitudeS, latitudeS;
     private String id_userS;
+    public ProfileActivity profile;
 
 
     public FirstFragment() {
@@ -52,8 +53,11 @@ public class FirstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_first, container, false);
+
+//        profile = (ProfileActivity) getActivity();
+//        String id = profile.mPostKeyIdUser;
+//        Toast.makeText(getActivity(), ""+id, Toast.LENGTH_SHORT).show();
 
         getJSON();
         return view;
@@ -145,7 +149,6 @@ public class FirstFragment extends Fragment {
             }
         });
 
-//        Toast.makeText(getActivity(), ""+latitudeS+longitudeS, Toast.LENGTH_SHORT).show();
     }
 
 }

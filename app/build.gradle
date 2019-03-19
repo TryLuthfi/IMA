@@ -61,6 +61,9 @@ dependencies {
 
     implementation 'com.stone.vega.library:VegaLayoutManager:1.0.6'
 
+    //google maps
+    implementation 'com.google.android.gms:play-services:12.0.1'
+
     //socket io
     implementation 'com.github.nkzawa:socket.io-client:0.3.0'
 }

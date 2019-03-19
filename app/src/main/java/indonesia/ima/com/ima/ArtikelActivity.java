@@ -73,6 +73,7 @@ public class ArtikelActivity extends AppCompatActivity {
                                 productList.add(new Artikel(
                                         product.getString("id_artikel"),
                                         product.getString("judul_artikel"),
+                                        product.getString("gambar_artikel"),
                                         product.getString("deskripsi_artikel"),
                                         product.getString("artikel_created_date")
                                 ));

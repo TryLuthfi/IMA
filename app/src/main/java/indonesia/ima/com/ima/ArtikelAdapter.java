@@ -41,6 +41,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ProductV
         holder.deskripsi_artikel.setText(""+product.getDeskripsi_artikel());
         holder.artikel_created_date.setText(product.getArtikel_created_date());
         holder.judul_artikel.setText(product.getJudul_artikel());
+        Glide.with(Objects.requireNonNull(mCtx)).load("http://imaindonesia.000webhostapp.com/acara/" + product.getGambar_artikel()).into(holder.gambar);
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +64,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ProductV
         LinearLayout user;
         TextView  deskripsi_artikel, artikel_created_date, judul_artikel;
         CardView da;
+        ImageView gambar;
         View view;
 
 
@@ -71,6 +73,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.ProductV
             view = itemView;
             deskripsi_artikel = view.findViewById(R.id.deskripsi_artikel);
             artikel_created_date = view.findViewById(R.id.artikel_created_date);
+            gambar = view.findViewById(R.id.gambar);
             judul_artikel = view.findViewById(R.id.judul_artikel);
 
         }

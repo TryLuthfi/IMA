@@ -41,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     @BindView(R.id.btn_fragment2)
     Button btnFragment2;
 
-    private String mPostKeyIdUser = null;
+    public String mPostKeyIdUser = null;
     private TextView username;
     private ImageView foto_profile;
     private String JSON_STRING;
