@@ -14,15 +14,24 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
 import indonesia.ima.com.ima.adapter.ChatAdapter;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
@@ -52,6 +61,8 @@ public class ChatActivity extends AppCompatActivity {
     String v_id = "1";
     String v_username;
 
+    String ChatURL = "http://imaindonesia.000webhostapp.com/chat.php/semuachat";
+
 
     private Socket mSocket;
     {
@@ -79,6 +90,8 @@ public class ChatActivity extends AppCompatActivity {
         rPesan.setLayoutManager(layoutManager);
         rPesan.setAdapter(chatAdapter);
         rPesan.scrollToPosition(chatList.size() - 1);
+
+        getAllChatHistory();
 
     }
 
@@ -137,7 +150,7 @@ public class ChatActivity extends AppCompatActivity {
         }
 
         pesan.setText("");
-        SimpleDateFormat dateFormatGmt = new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
+        SimpleDateFormat dateFormatGmt = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         //SimpleDateFormat dateFormatGmt = new SimpleDateFormat("HH:mm");
         dateFormatGmt.setTimeZone(TimeZone.getTimeZone("GMT"));
 
@@ -155,6 +168,30 @@ public class ChatActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void getAllChatHistory(){
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.GET,
+                ChatURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        chatList.addAll(ChatEntry.initProductEntryListServer(response));
+                        chatAdapter.notifyDataSetChanged();
+                        rPesan.scrollToPosition(chatList.size() - 1);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError e) {
+                        Log.d(TAG, "chatHistory err: " + e);
+
+                    }
+                });
+
+        //Adding the string request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
     }
 
     @Override
