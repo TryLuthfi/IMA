@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,14 +68,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder>{
 
     public String getTanggal(String tanggal){
         Locale current = activity.getResources().getConfiguration().locale;
-        SimpleDateFormat df = new SimpleDateFormat("dd:MM:yyyy HH:mm", current);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", current);
         SimpleDateFormat df2 = new SimpleDateFormat("HH:mm", current);
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         Date date = null;
         try {
             date = df.parse(tanggal);
+            Log.d(TAG, "getTanggal: " + date);
         } catch (ParseException e) {
             e.printStackTrace();
+            Log.d(TAG, "getTanggal: " + e);
         }
         df.setTimeZone(TimeZone.getDefault());
         return df2.format(date);
