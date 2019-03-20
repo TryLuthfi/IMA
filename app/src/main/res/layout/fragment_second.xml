@@ -2,31 +2,144 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="5dp"
     android:layout_marginVertical="5dp"
     tools:context=".adapter.SecondFragment">
 
-    <!--<LinearLayout-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:background="@drawable/formwhite"-->
-        <!--android:layout_height="500dp">-->
-    <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/formorange"
+        android:layout_height="500dp">
+    </LinearLayout>
 
-    <!--<LinearLayout-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:background="@drawable/formwhite"-->
-        <!--android:layout_height="wrap_content">-->
+    <LinearLayout
+        android:id="@+id/formnama"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:background="@drawable/formwhite"
+        android:layout_height="wrap_content">
 
-        <!--<TextView-->
-            <!--android:paddingHorizontal="10dp"-->
-            <!--android:paddingVertical="3dp"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="USERNAME"-->
-            <!--android:layout_height="wrap_content" />-->
+        <TextView
+            android:id="@+id/nama"
+            android:textSize="15sp"
+            android:paddingHorizontal="10dp"
+            android:textColor="#BB4C19"
+            android:paddingVertical="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <!--</LinearLayout>-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/formtelp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/formnama"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="#BB4C19"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:text="No Telp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:background="@drawable/formkotakorange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:paddingVertical="10dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/no_telp"
+                android:textSize="20dp"
+                android:textColor="#BB4C19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/formbidang"
+        android:layout_below="@id/formtelp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="#BB4C19"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:text="Bidang Usaha"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:background="@drawable/formkotakorange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:paddingVertical="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="20dp"
+                android:id="@+id/bidang_usaha"
+                android:textColor="#BB4C19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/formbidang"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="#BB4C19"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:text="Nama Usaha"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:background="@drawable/formkotakorange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:paddingVertical="10dp"
+                android:paddingLeft="10dp"
+                android:textSize="20dp"
+                android:id="@+id/nama_usaha"
+                android:textColor="#BB4C19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -15,6 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ProfileUser"></activity>
         <activity android:name=".ChatActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -40,13 +45,12 @@
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCx651xXA4TeK_0VMkTLbtPciMouSJiK6E"/>
-        <activity android:name=".ProfileActivity"></activity>
+            android:value="AIzaSyCx651xXA4TeK_0VMkTLbtPciMouSJiK6E" />
+
+        <activity android:name=".ProfileActivity" />
     </application>
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true"/>
 
 </manifest>

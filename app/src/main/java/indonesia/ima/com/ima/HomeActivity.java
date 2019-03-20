@@ -147,6 +147,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void profilku(View view) {
-        Toast.makeText(HomeActivity.this, "Profile Masih Belum Ada", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent (HomeActivity.this, ProfileUser.class);
+        startActivity(intent);
     }
+
+
 }
