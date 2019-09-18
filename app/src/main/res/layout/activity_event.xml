@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".EventActivity">
+    tools:context=".activity.EventActivity">
 
 
     <RelativeLayout
@@ -42,7 +42,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:gravity="center_vertical"
-                    android:text="EVENT"
+                    android:text="ACARA"
                     android:textColor="#b14e14"
                     android:textSize="20sp" />
             </LinearLayout>

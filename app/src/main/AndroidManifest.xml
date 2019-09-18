@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="indonesia.ima.com.ima">
+    package="indonesia.asperindo.com.asperindo">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,29 +12,30 @@
         android:required="true" />
 
     <application
-        android:name=".MyApplication"
+        android:name="indonesia.asperindo.com.asperindo.request.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logoasperindo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logoasperindo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileUser"></activity>
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.TentangActivity"></activity>
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.ProfileUser" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.ChatActivity" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EventActivity" />
-        <activity android:name=".DetailEvent" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".DetailArtikel" />
-        <activity android:name=".ArtikelActivity" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.EventActivity" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.DetailEvent" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.HomeActivity" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.DetailArtikel" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.ArtikelActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="indonesia.asperindo.com.asperindo.activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme">
             <meta-data
@@ -50,7 +51,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCx651xXA4TeK_0VMkTLbtPciMouSJiK6E" />
 
-        <activity android:name=".ProfileActivity" />
+        <activity android:name="indonesia.asperindo.com.asperindo.activity.ProfileActivity" />
     </application>
 
 </manifest>

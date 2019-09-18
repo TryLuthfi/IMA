@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
 
+    <!--//searchview recycler-->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +21,120 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <LinearLayout
+        android:visibility="invisible"
+        android:id="@+id/satu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff"
+        android:orientation="horizontal">
 
-</android.support.design.widget.CoordinatorLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:onClick="back">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="ANGGOTA"
+                android:textColor="#b14e14"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_below="@id/satu"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/aaaa"
+                android:layout_marginVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/gambar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="200dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aaaa"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:id="@+id/spiner"
+                        android:layout_height="wrap_content"></Spinner>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#998181"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recylcerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

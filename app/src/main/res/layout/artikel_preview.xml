@@ -39,14 +39,32 @@
                 android:background="#fff"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/judul_artikel"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#000"
-                    android:textSize="20sp" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/judul_artikel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#000"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_marginRight="10dp"
+                        android:text="Lihat Selengkapnya"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#168fba"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
